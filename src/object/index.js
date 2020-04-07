@@ -2,7 +2,8 @@
   Создать и вернуть пустой объект
  */
 function createObject() {
-
+  let obj = {};
+  return obj;
 }
 
 /**
@@ -19,7 +20,11 @@ function createObject() {
  * @param object
  */
 function getCountOfProp(object) {
-
+  let a = 0;
+  for (key in object) {
+    a = a + 1;
+  }
+  return a;
 }
 
 /**
