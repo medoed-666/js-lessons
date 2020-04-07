@@ -6,5 +6,7 @@
  * sum(5, 6) - "Итог: 11"
  */
 function sum(a, b) {
+    let summatest = +a + +b;
+    return `Итог: ${summatest}`;
 }
 module.exports = sum;
