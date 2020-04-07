@@ -8,14 +8,16 @@ https://learn.javascript.ru/array-methods
  *  Создать и вернуть новый пустой массив массив
  */
 function createArray() {
-
+  let arr = [];
+  return [];
 }
 
 /**
  * Создать и вернуть массив указанной длинны
  */
 function createEmptyArrayWithLength(len) {
-
+  let arr = new Array(len);
+  return len;
 }
 
 /**
@@ -23,7 +25,8 @@ function createEmptyArrayWithLength(len) {
  * Вернуть измененный массив
  */
 function addToArray(arr, newValue) {
-
+  arr.push(newValue);
+  return arr;
 }
 
 /**
@@ -31,7 +34,8 @@ function addToArray(arr, newValue) {
  * Вернуть измененный массив
  */
 function addToStartArray(arr, newValue) {
-
+  arr.unshift(newValue);
+  return arr;
 }
 
 /**
@@ -40,7 +44,9 @@ function addToStartArray(arr, newValue) {
  *  второй - удаленный элемент массива
  */
 function removeFromArrayFirst(arr) {
-
+  first = arr.shift();
+  let arr1 = [arr, first]
+  return arr1
 }
 
 /**
@@ -69,7 +75,9 @@ function copyArray(arr) {
  * @returns {any[] | string}
  */
 function mergeArray(arr, arr2) {
-
+  let arr3 = [];
+  arr3 = arr.cocncat(arr2);
+  return arr3;
 }
 
 /**
@@ -101,7 +109,12 @@ function filterArrayCustom(arr, fn) {
  * Вернуть новый массив.
  */
 function reverseArray(arr) {
+  let newArr = [];
 
+  newArr = arr.concat();
+  newArr.reverse();
+
+  return newArr;
 }
 
 /**
@@ -111,7 +124,12 @@ function reverseArray(arr) {
  * @param arr
  */
 function sortArray(arr) {
+  let newArr = [];
 
+  newArr = arr.concat();
+  newArr.sort((person1, person2) => person2.age - person1.age);
+
+  return newArr;
 }
 
 /**
@@ -127,7 +145,17 @@ function sortArray(arr) {
  *  spliceArray([1,2,3,4,5,6,7,8,9]) -> [ [7, 8, 9], [4, 5, 6], [1, 2, 3] ]
  */
 function spliceArray(arr) {
+  let newArr = [];
+  let i = arr.length - 3,
+    u = arr.length;
 
+  for (let a = 0; a < 3; a++) {
+
+    newArr[a] = arr.slice(i, u);
+    i -= 3;
+    u -= 3;
+  }
+  return newArr;
 }
 
 /**
@@ -141,7 +169,15 @@ function spliceArray(arr) {
  * @param obj
  */
 function objectToArray(obj) {
-
+  let newArr = [];
+  let keys = [];
+  let values = [];
+  keys = Object.keys(obj);
+  values = Object.values(obj);
+  for (let i = 0; i < keys.length; i++) {
+    newArr[i] = new Array(String(keys[i]), String(values[i]));
+  }
+  return nArr;
 }
 
 /**
