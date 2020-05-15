@@ -32,7 +32,8 @@ function getCountOfProp(object) {
  * @param obj
  */
 function copyObject(obj) {
-
+  let clone = Object.assign({}, obj);
+  return clone;
 }
 
 /**
@@ -43,7 +44,8 @@ function copyObject(obj) {
  * mergeObject(a, b) = { name: 'Max', age: 18, }
  */
 function mergeObject(objectA, objectB) {
-
+  let A_B = Object.assign ({},objectA, objectB);
+  return A_B;
 }
 
 /**
@@ -52,7 +54,7 @@ function mergeObject(objectA, objectB) {
  * hasKey(a, 'name') = true
  */
 function hasKey(object, key) {
-
+  return (key in object);
 }
 
 /**
@@ -65,7 +67,8 @@ function hasKey(object, key) {
  * addToObject(a, key, value) = { name: '1', age: 18 }
  */
 function addToObject(object, key, value) {
-
+  object[key] = value;
+  return object;
 }
 
 module.exports = {
