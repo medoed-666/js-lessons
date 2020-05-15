@@ -56,7 +56,11 @@ function removeFromArrayFirst(arr) {
  *  пример joinArray(['name', 'age'], "+") => 'name+age'
  */
 function joinArray(array, sep) {
-
+  let stringArr = '';
+  for (let i = 0; i < array.length; i++) {
+    if (i < array.length - 1) { stringArr += array[i] + sep; } else { stringArr += array[i]; }
+  }
+  return stringArr;
 }
 
 /**
@@ -65,7 +69,9 @@ function joinArray(array, sep) {
  * @returns {*[]}
  */
 function copyArray(arr) {
-
+  let arr2 = [];
+  arr2 = arr.slice();
+  return arr2;
 }
 
 /**
@@ -86,7 +92,8 @@ function mergeArray(arr, arr2) {
  * filterArray([1,3, 5, 2]) => [3,5]
  */
 function filterArray(arr) {
-
+  let nArr = arr.filter(item => item > 2);
+  return nArr;
 }
 
 /**
@@ -101,7 +108,14 @@ function filterArray(arr) {
  * @param fn
  */
 function filterArrayCustom(arr, fn) {
-
+  let nArr = [];
+  let i = 0;
+  for (let item of arr) {
+    if (fn(item)) {
+      nArr[i++] = item;
+    }
+  }
+  return nArr;
 }
 
 /**
@@ -110,10 +124,8 @@ function filterArrayCustom(arr, fn) {
  */
 function reverseArray(arr) {
   let newArr = [];
-
   newArr = arr.concat();
   newArr.reverse();
-
   return newArr;
 }
 
@@ -125,10 +137,8 @@ function reverseArray(arr) {
  */
 function sortArray(arr) {
   let newArr = [];
-
   newArr = arr.concat();
   newArr.sort((person1, person2) => person2.age - person1.age);
-
   return newArr;
 }
 
@@ -148,9 +158,7 @@ function spliceArray(arr) {
   let newArr = [];
   let i = arr.length - 3,
     u = arr.length;
-
   for (let a = 0; a < 3; a++) {
-
     newArr[a] = arr.slice(i, u);
     i -= 3;
     u -= 3;
@@ -186,7 +194,13 @@ function objectToArray(obj) {
  * @param arr
  */
 function arrayToObject(arr) {
-
+  let nObj = {};
+  let value;
+  for (let i = 0; i < arr.length; i++) {
+    if (isNaN(+arr[i][1])) { value = arr[i][1] } else { value = +arr[i][1] }
+    nObj[arr[i][0]] = value;
+  }
+  return nObj;
 }
 
 module.exports = {
